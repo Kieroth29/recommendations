@@ -1,3 +1,4 @@
+from csv import writer
 from PyPDF2 import PdfReader
 from re import sub
 from scholarly import scholarly
@@ -29,7 +30,7 @@ def get_programatic_content(page_text: str) -> List[str]:
     return classes
 
 
-def extract_classes_subjects(classes: List[str]):
+def extract_classes_subjects(classes: List[str]) -> None:
     pattern = "Aula[0-9]{2}: "
     for item in classes:
         subject = sub(pattern, '', item)
@@ -37,10 +38,32 @@ def extract_classes_subjects(classes: List[str]):
         classes[classes.index(item)] = subject
         
 
-def get_recommendations(subject: str) -> Dict:
-    pubs = scholarly.search_pubs(subject)
-    #TODO: Filter pubs per 'gsrank' key and create top 10 recommendations
+def get_recommendations(content_list: List[str]) -> List[List[str | List[str]]]:
+    recommendations = []
+    
+    for content in content_list:
+        pubs = scholarly.search_pubs(content)
+        top_pub = next(pubs)
         
+        recommendations.append([
+            top_pub["bib"]["title"],
+            ', '.join(top_pub["bib"]["author"]),
+            top_pub["bib"]["pub_year"],
+            top_pub["bib"]["venue"],
+            top_pub["pub_url"]
+        ])
+    
+    return recommendations
+
+
+def export_sheet(recommendations: List[Dict]) -> None:
+    with open("recommendations.csv", "w") as file:
+        file_writer = writer(file)
+        file_writer.writerow(["Title", "Authors", "Year", "Venue", "URL"])
+        
+        for recommendation in recommendations:
+            file_writer.writerow(recommendation)
+              
 
 with open('../resources/MATC84-LaboratorioProgramacaoWeb_(2021.2).pdf', 'rb') as pdfFile:
     pdfReader = PdfReader(pdfFile)
@@ -56,5 +79,6 @@ with open('../resources/MATC84-LaboratorioProgramacaoWeb_(2021.2).pdf', 'rb') as
             break
     
     extract_classes_subjects(programatic_content)
-    for subject in programatic_content:
-        get_recommendations(subject)
+    
+    recommendations = get_recommendations(programatic_content)
+    export_sheet(recommendations)
