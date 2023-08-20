@@ -95,6 +95,6 @@ def generate_recommendations():
 
 if __name__ == "__main__":
     if config("APP_ENVIRONMENT") == "production":
-        app.run()
+        app.run(host="0.0.0.0", port=5052, ssl_context=(config('API_CERT'), config('API_KEY')))
     else:
         app.run(debug=True)

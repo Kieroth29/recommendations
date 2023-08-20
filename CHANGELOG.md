@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.1
+- HTTPS support
+
 ## v2.0
 - Back-end with cache and database integrations
 - Improving project structure
