@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Union
+from typing import List, Optional, Union
 
 
 class Publication(BaseModel):
@@ -8,4 +8,4 @@ class Publication(BaseModel):
     url: str
     authors: Union[str, List[str]]
     num_citations: int
-    pub_year: int
+    pub_year: Optional[int]

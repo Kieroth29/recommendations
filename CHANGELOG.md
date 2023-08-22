@@ -1,5 +1,8 @@
 # Changelog
 
+## v2.1.1
+- Fixing recommendation generation when no publications are available for the class topic
+
 ## v2.1
 - HTTPS support
 

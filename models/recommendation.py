@@ -1,10 +1,11 @@
 from pydantic import BaseModel
-from typing import List, Union
+from typing import List, Optional, Union
 
 
 class Recommendation(BaseModel):
+    class_topic: str
     title: str
     venue: str
     authors: Union[str, List[str]]
     url: str
-    pub_year: int
+    pub_year: Optional[int]

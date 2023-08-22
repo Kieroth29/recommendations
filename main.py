@@ -13,8 +13,8 @@ from models.recommendation import Recommendation
 from storage.cache import Cache
 from storage.db import DB
 from utils.responses import success_response_handler, client_error_response_handler, server_error_response_handler
-from utils.validators import publication_creation_payload_is_valid
-from utils.exceptions import PublicationAlreadyExists
+from utils.validators import publication_creation_payload_is_valid, recommendation_creation_payload_is_valid
+from utils.exceptions import PublicationAlreadyExists, RecommendationAlreadyExists
 
 
 app = Flask(__name__)
@@ -30,9 +30,11 @@ def create_publication():
         return client_error_response_handler(message="Payload invalid", status=422)
 
     try:
-        cache.set_publication(data)
-    except PublicationAlreadyExists:
-        return client_error_response_handler(message="Publication already exists", status=409)
+        publication = Publication(**data)
+        cache.set_publication(publication)
+        db.insert_publication(publication)
+    except PublicationAlreadyExists as e:
+        return client_error_response_handler(message=f"Publication already exists on {e.resource}", status=409)
     except Exception as e:
         return server_error_response_handler(message=str(e))
 
@@ -41,17 +43,51 @@ def create_publication():
 
 @app.route("/publication", methods=["GET"])
 def read_publication():
-    data = request.get_json()
+    title = request.args.get('title')
 
-    if "title" not in data:
+    if not title:
         return client_error_response_handler(message="Publication title not on payload")
 
-    publication = cache.get("publication", data["title"])
+    publication = cache.get("publication", title)
 
     if publication:
         return success_response_handler(publication.model_dump_json(), status=200)
 
     return client_error_response_handler(message="Publication not found", status=404)
+
+
+@app.route("/recommendation", methods=["POST"])
+def create_recommendation():
+    data = request.get_json()
+
+    if not recommendation_creation_payload_is_valid(data):
+        return client_error_response_handler(message="Payload invalid", status=422)
+
+    try:
+        recommendation = Recommendation(**data)
+        cache.set_recommendation(recommendation)
+        db.insert_recommendation(recommendation)
+    except RecommendationAlreadyExists as e:
+        return client_error_response_handler(message=f"Recommendation already exists on {e.resource}", status=409)
+    except Exception as e:
+        return server_error_response_handler(message=str(e))
+
+    return success_response_handler(json.dumps({"message": "Recommendation created successfully"}), status=201)
+
+
+@app.route("/recommendation", methods=["GET"])
+def read_recommendation():
+    class_topic = request.args.get('class_topic')
+
+    if not class_topic:
+        return client_error_response_handler(message="Recommendation class topic not on payload")
+
+    recommendation = cache.get("recommendation", class_topic)
+
+    if recommendation:
+        return success_response_handler(recommendation.model_dump_json(), status=200)
+
+    return client_error_response_handler(message="Recommendation not found", status=404)
 
 
 @app.route("/recharge_cache", methods=["POST"])

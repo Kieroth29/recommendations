@@ -24,16 +24,16 @@ class DB():
 
     def insert_publication(self, publication: Publication) -> None:
         if self.get_publication(publication.title):
-            raise PublicationAlreadyExists()
+            raise PublicationAlreadyExists(resource="db")
         self.publications.insert_one(publication.model_dump())
 
     def get_publication(self, title: str) -> (Dict | None):
         return self.publications.find_one({"title": title})
 
     def insert_recommendation(self, recommendation: Recommendation) -> None:
-        if self.get_recommendation(recommendation.title):
-            raise RecommendationAlreadyExists()
-        self.publications.insert(recommendation.model_dump())
+        if self.get_recommendation(recommendation.class_topic):
+            raise RecommendationAlreadyExists(resource="db")
+        self.recommendations.insert_one(recommendation.model_dump())
 
-    def get_recommendation(self, title: str) -> (Dict | None):
-        return self.publications.find_one({"title": title})
+    def get_recommendation(self, class_topic: str) -> (Dict | None):
+        return self.recommendations.find_one({"class_topic": class_topic})

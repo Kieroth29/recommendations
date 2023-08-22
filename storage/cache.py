@@ -26,18 +26,18 @@ class Cache():
             return Recommendation(**json.loads(object))
 
     def set_publication(self, publication: Publication) -> None:
-        if self.get(publication.title):
-            raise PublicationAlreadyExists()
+        if self.get('publication', publication.title):
+            raise PublicationAlreadyExists(resource="cache")
 
         self.cache.set(
             f"publication:{publication.title}", publication.model_dump_json())
 
     def set_recommendation(self, recommendation: Recommendation) -> None:
-        if self.get(recommendation.title):
-            raise RecommendationAlreadyExists()
+        if self.get('recommendation', recommendation.class_topic):
+            raise RecommendationAlreadyExists(resource="cache")
 
         self.cache.set(
-            f"recommendation:{recommendation.title}", recommendation.model_dump_json())
+            f"recommendation:{recommendation.class_topic}", recommendation.model_dump_json())
 
     def set_items_batch(self, key: str, items: List[Dict]) -> None:
         pipe = self.cache.pipeline()

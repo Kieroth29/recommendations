@@ -1,0 +1,156 @@
+{
+    "recommendations": [
+        {
+            "class_topic": "Apresentação aula inicial do curso e evolução da Web. ",
+            "title": "Construção de possibilidades junto a alunos\" ignorados educacionalmente\"",
+            "venue": "NA",
+            "authors": [
+                "TR Brum"
+            ],
+            "url": "https://app.uff.br/riuff/handle/1/29060",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "Evolução da Programação para Web ",
+            "title": "Reengenharia do software BacPP",
+            "venue": "NA",
+            "authors": [
+                "GF Conci"
+            ],
+            "url": "https://repositorio.ucs.br/xmlui/handle/11338/12606",
+            "pub_year": "NA"
+        },
+        {
+            "class_topic": "O protocolo HTTP ",
+            "title": "O papel do corregistro automático de imagens e da dosimetria interna na medicina personalizada",
+            "venue": "Radiologia Brasileira",
+            "authors": [
+                "L Alexandre-Santos",
+                "L Wichert-Ana"
+            ],
+            "url": "https://www.scielo.br/j/rb/a/ZsDpJcyLZym8QkjV54c984b/?lang=pt",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "Linguagens de Programação para Web e Desenvolvimento Web ",
+            "title": "JOGO DA FORCA: PARTE GRÁFICA DO JOGO DA FORCA DESENVOLVIDO EM PYTHON",
+            "venue": "REFAQI-REVISTA DE GESTÃO …",
+            "authors": [
+                "MD DOS SANTOS",
+                "JP Moreira"
+            ],
+            "url": "https://refaqi.faqi.edu.br/index.php/refaqi/article/view/138",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "Arquitetura de Sistemas Web ",
+            "title": "Caderno de pós-graduação em arquitetura e urbanismo: análise bibliométrica em arquitetura",
+            "venue": "NA",
+            "authors": [
+                "NS Narváez",
+                "HR Campos"
+            ],
+            "url": "https://repositorio.uniceub.br/jspui/handle/prefix/16658",
+            "pub_year": "NA"
+        },
+        {
+            "class_topic": "HTML 5, CSS e JavaScript ",
+            "title": "Postavitev spletnega mesta s športno-rekreacijskimi vsebinami",
+            "venue": "NA",
+            "authors": [
+                "E Šarec"
+            ],
+            "url": "https://repozitorij.uni-lj.si/IzpisGradiva.php?id=146856",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "Programação para Wiki ",
+            "title": "Oficina da Wikipédia: editatona na universidade: relato de experiência",
+            "venue": "Anais",
+            "authors": [
+                "LCC Pereira",
+                "HGC Matos",
+                "AAP Montilha"
+            ],
+            "url": "https://repositorio.usp.br/item/003137647",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "JSP e Servlets ",
+            "title": "Optimization design of electronic commerce system based on the basic principles of software engineering",
+            "venue": "Advances in Economics and Management …",
+            "authors": [
+                "J Lin"
+            ],
+            "url": "https://madison-proceedings.com/index.php/aemr/article/view/1296",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "WebServices - REST ",
+            "title": "Erfaringer med drift af elbusser i Movia",
+            "venue": "… from the Annual Transport Conference at …",
+            "authors": [
+                "MRV Andersen",
+                "V Hug"
+            ],
+            "url": "https://journals.aau.dk/index.php/td/article/download/7914/6489",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "JSF e PrimeFaces ",
+            "title": "Sistematización de los procesos de becas en el departamento de Bienestar Universitario de la Universidad Central del Ecuador.",
+            "venue": "NA",
+            "authors": [
+                "JD Quishpe Estévez"
+            ],
+            "url": "http://www.dspace.uce.edu.ec/handle/25000/30783",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "Python & Django ",
+            "title": "PB1979: DATA INTEGRATION BETWEEN CLINICAL RESEARCH AND PATIENT CARE: A FRAMEWORK FOR CONTEXT-DEPENDING DATA SHARING …",
+            "venue": "…",
+            "authors": [
+                "K Hoffmann",
+                "A Pelz",
+                "E Karg",
+                "A Gottschalk",
+                "T Zerjatke"
+            ],
+            "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10430351/",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "PHP ",
+            "title": "SISTEM REKAM MEDIS MENGGUNAKAN PHP dan MySQL BERBASIS WEBSITE",
+            "venue": "Jurnal Rekayasa Teknologi Nusa Putra",
+            "authors": [
+                "I Maulana"
+            ],
+            "url": "https://rekayasa.nusaputra.ac.id/article/view/342",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "ASP.NET / C# ",
+            "title": "Webová aplikace na stahování obsahu ze sociální sítě Reddit",
+            "venue": "NA",
+            "authors": [
+                "J Knotek"
+            ],
+            "url": "https://dk.upce.cz/handle/10195/81538",
+            "pub_year": "2023"
+        },
+        {
+            "class_topic": "Single Page Applications ",
+            "title": "Pemrosesan Data Sisi Klien Menggunakan Rakitan Web di Aplikasi Rendering Sisi Server",
+            "venue": "Multidisciplinary Applications …",
+            "authors": [
+                "R Elsen",
+                "TH Wijaya",
+                "R Setiawan"
+            ],
+            "url": "https://journal.unugiri.ac.id/index.php/almantiq/article/view/2007",
+            "pub_year": "2023"
+        }
+    ]
+}
